@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4309-s01-62d430",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: src/api/errors.ts\n\nCatch SyntaxError (typically thrown by express.json() when parsing invalid JSON bodies) in the error handler middleware and respond with a 400 Bad Request instead of letting it result in a 500 internal error.",
+  "branch": "repomind/issue-4309",
+  "title": "Return 400 Bad Request for requests with invalid JSON bodies",
+  "issue": "issue-4309"
+ },
+ "facts": {
+  "issue": 4309,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4309",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "62675520afdb",
+ "asked_at": "2026-11-06T06:07:05.202Z"
+}

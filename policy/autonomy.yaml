@@ -1,0 +1,30 @@
+independent:
+  - read_issue
+  - search_repo
+  - read_file
+  - run_tests
+  - apply_label
+  - post_comment/agent_opened
+  - close_issue/agent_opened
+requires_approval:
+  - post_comment/human_active
+  - post_comment/human_quiet
+  - open_pr/develop
+  - push_commit/unprotected
+prohibited:
+  - merge_pr
+  - push_commit/protected
+  - close_issue/human_opened
+  - open_pr/other_base
+classes:
+  post_comment/human_active: A human commented less than 60 minutes ago; this takes precedence over authorship.
+  post_comment/agent_opened: Agent opened the issue and no human is active.
+  post_comment/human_quiet: Human opened the issue and no human is active.
+  close_issue/agent_opened: Agent opened the issue; reopen_issue compensates closure.
+  close_issue/human_opened: Human opened the issue; triage does not require closing it.
+  open_pr/develop: Draft pull request targets develop.
+  open_pr/other_base: Pull request targets anything other than develop.
+  push_commit/protected: Destination branch is protected.
+  push_commit/unprotected: Existing branch is unprotected; an exceptional push needs explicit review.
+
+reviewer_timezone: America/Chicago

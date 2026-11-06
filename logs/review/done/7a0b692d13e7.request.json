@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4307-s01-1a2b86",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Fix health endpoint reporting version 'dev' in production",
+  "branch": "repomind/issue-4307",
+  "body": "src/api/health.ts\n\nRead the version from package.json directly or via an environment variable set at build/runtime rather than relying on `process.env.npm_package_version`, which is only defined when running via `npm run` (not when running `node dist/index.js` directly in production containers).",
+  "issue": "issue-4307"
+ },
+ "facts": {
+  "issue": 4307,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4307",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "7a0b692d13e7",
+ "asked_at": "2026-11-06T06:05:25.711Z"
+}

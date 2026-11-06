@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4329-s01-23c171",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: src/importer/csv.ts\n\nUpdate the CSV parser to handle quoted fields containing line breaks correctly, allowing multi-line descriptions within valid quoted CSV fields to be imported as a single row instead of throwing a malformed row error.",
+  "title": "Support multi-line quoted fields in CSV imports",
+  "issue": "issue-4329",
+  "branch": "repomind/issue-4329"
+ },
+ "facts": {
+  "issue": 4329,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 27.1,
+  "label": null,
+  "branch": "repomind/issue-4329",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "39dd3d08334b",
+ "asked_at": "2026-11-06T06:24:20.459Z"
+}

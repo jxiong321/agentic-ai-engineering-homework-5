@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4321-s01-e4c831",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4321",
+  "body": "File: src/i18n/fr.json\n\nAdd the missing French translations for export UI strings (`ui.export.button`, `ui.export.busy`, and `ui.export.done`) so that the report page displays French text instead of English when the locale is set to French.",
+  "title": "Add missing French translations for export UI strings",
+  "issue": "issue-4321"
+ },
+ "facts": {
+  "issue": 4321,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4321",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "2f1f2cc7476f",
+ "asked_at": "2026-11-06T06:18:56.583Z"
+}

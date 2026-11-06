@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4336-s01-bbc6d2",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4336",
+  "title": "Remove trailing hyphens from truncated export filenames",
+  "body": "File: src/exportUtils.ts\n\nTrim trailing hyphens from the truncated report name when formatting export filenames, preventing double hyphens before the date.",
+  "issue": "issue-4336"
+ },
+ "facts": {
+  "issue": 4336,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4336",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "b17e78a374f5",
+ "asked_at": "2026-11-06T06:27:22.299Z"
+}

@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4313-s01-6f3cfb",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4313",
+  "branch": "repomind/issue-4313",
+  "title": "Reset orphaned running import jobs stranded by process restarts",
+  "body": "File: src/ingest/queue.ts\n\nReset orphaned `running` import jobs (and their uploads) on startup or via worker recovery so that jobs left stranded by a redeploy or process crash do not remain stuck in `running` indefinitely."
+ },
+ "facts": {
+  "issue": 4313,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4313",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "b7b40eb2e58d",
+ "asked_at": "2026-11-06T06:09:32.846Z"
+}

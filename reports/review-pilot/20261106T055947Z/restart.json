@@ -1,0 +1,18 @@
+{
+  "reason": "Fresh review after source-evidence screen correction; all prior day reviews are pilot observations.",
+  "pilot_run_ids": [
+    "planned-4301-s01-2d1aee",
+    "planned-4301-s01-655da3",
+    "planned-4302-s01-f04a7f",
+    "planned-4302-s01-fed83a",
+    "planned-4303-s01-4b0c43",
+    "planned-4304-s01-f7a6df",
+    "planned-4305-s01-f1b64c",
+    "planned-4306-s01-ab3a35",
+    "planned-4307-s01-e6b3b7",
+    "planned-4308-s01-861f89",
+    "planned-4309-s01-2d123d",
+    "planned-4310-s01-218465"
+  ],
+  "archive": "reports/review-pilot/20261106T055947Z"
+}

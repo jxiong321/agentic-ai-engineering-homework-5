@@ -1,0 +1,7 @@
+{
+  "attempted": "post_comment: {}",
+  "why_stopped": "The proposed triage disagrees with this issue's stored label/file fact",
+  "needs_from_human": "Approve the attempted action despite this signal, or deny and revise before resuming.",
+  "signal": "memory_contradiction",
+  "at": "2026-11-06T04:39:31.251Z"
+}

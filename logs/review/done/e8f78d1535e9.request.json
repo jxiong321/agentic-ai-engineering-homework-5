@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4324-s01-870ab3",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4324",
+  "title": "Fix export file download not triggering in Safari",
+  "body": "File: src/components/ExportButton.tsx\n\nUpdate the export handling logic in ExportButton to ensure the file download triggers correctly in Safari (e.g. by properly handling anchor element clicks or blob creation for Safari's download constraints).",
+  "issue": "issue-4324"
+ },
+ "facts": {
+  "issue": 4324,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4324",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "e8f78d1535e9",
+ "asked_at": "2026-11-06T06:20:12.813Z"
+}

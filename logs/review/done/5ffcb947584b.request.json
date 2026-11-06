@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4338-s01-72a884",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4338",
+  "body": "File: README.md\n\nAdd `src/storage/`, `src/util/`, `config/`, and `test/` to the Project layout table in the README to keep it complete and in sync with the repository structure.",
+  "title": "Add missing folders to the project layout table in README.md",
+  "issue": "issue-4338"
+ },
+ "facts": {
+  "issue": 4338,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4338",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "5ffcb947584b",
+ "asked_at": "2026-11-06T06:28:43.543Z"
+}

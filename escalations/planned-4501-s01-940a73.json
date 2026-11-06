@@ -1,0 +1,7 @@
+{
+  "attempted": "push_commit: {\"branch\": \"repomind/issue-4501\", \"message\": \"Fix for issue 4501\", \"files\": [\"src/export/csv.ts\"]}",
+  "why_stopped": "This run's own test suite failed on the target branch",
+  "needs_from_human": "Approve the attempted action despite this signal, or deny and revise before resuming.",
+  "signal": "failed_verification",
+  "at": "2026-11-06T04:21:16.009Z"
+}

@@ -1,0 +1,22 @@
+{
+ "run_id": "planned-4310-s01-218465",
+ "action": "post_comment",
+ "action_class": "post_comment/human_quiet",
+ "args": {
+  "body": "label: bug\nfile: src/api/reports.ts\nWritten by RepoMind, an automated AI agent. To reach a person, reply requesting a human maintainer.",
+  "issue": "issue-4310"
+ },
+ "facts": {
+  "issue": 4310,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": null,
+  "branch_protected": null,
+  "base": null,
+  "target_created_by_agent": false,
+  "paths": []
+ },
+ "request_id": "2ab228e7e40f",
+ "asked_at": "2026-11-06T05:38:31.612Z"
+}

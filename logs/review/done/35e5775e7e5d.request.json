@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4308-s01-ffb6c0",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4308",
+  "body": "File: docs/API.md\n\nUpdate the notes for GET /reports/:id/totals to specify that inflow and outflow are in minor units (cents) and that outflow is returned as a negative number.",
+  "branch": "repomind/issue-4308",
+  "title": "Clarify units and sign of totals in the API reference"
+ },
+ "facts": {
+  "issue": 4308,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4308",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "35e5775e7e5d",
+ "asked_at": "2026-11-06T06:06:15.012Z"
+}

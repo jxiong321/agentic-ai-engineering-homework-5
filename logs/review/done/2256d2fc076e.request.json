@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4304-s01-f7a6df",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4304",
+  "body": "File: src/ingest/worker.ts\n\nWrap the storage.remove call in purgeExpiredFailedUploads in a try/catch block so that an AccessDenied or missing object on a single failed upload does not halt the entire purge loop and block subsequent expired uploads from being processed.",
+  "title": "Handle storage removal errors individually in failed upload purge",
+  "branch": "repomind/issue-4304"
+ },
+ "facts": {
+  "issue": 4304,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4304",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "2256d2fc076e",
+ "asked_at": "2026-11-06T05:27:16.123Z"
+}

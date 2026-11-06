@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4330-s01-1f674d",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Add date preset options for Last month, This quarter, and Year to date",
+  "issue": "issue-4330",
+  "branch": "repomind/issue-4330",
+  "body": "File: src/i18n/en.json\n\nAdd translation keys for 'Last month', 'This quarter', and 'Year to date' date range presets to support the requested new report date filters."
+ },
+ "facts": {
+  "issue": 4330,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4330",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "edcbf979470c",
+ "asked_at": "2026-11-06T06:24:51.993Z"
+}

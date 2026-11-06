@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4332-s01-e15a47",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4332",
+  "body": "docs/help/bank-statements.md\n\nUpdate the help centre article 'Preparing your bank statement' to replace screenshots of the old import page with the current upload form and remove instructions to send files to the `/import` address, aligning it with the current UI.",
+  "branch": "repomind/issue-4332",
+  "title": "Update bank statement help article to match current upload form"
+ },
+ "facts": {
+  "issue": 4332,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4332",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "ec83d79a9eb5",
+ "asked_at": "2026-11-06T06:25:58.356Z"
+}

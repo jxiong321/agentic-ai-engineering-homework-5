@@ -162,6 +162,13 @@ class Recording:
 
 
 def run(ctx) -> None:
+    from policy.inbox import InboxClient
+    ctx.client = InboxClient(ctx, ctx.client)
+    from policy.hook import stopped, append
+    from harness.notify import notify
+    if stopped(ctx.run_id):
+        append("logs/stops.jsonl", dict(run_id=ctx.run_id, event="lifted"))
+    notify("live", ctx.run_id, f"RepoMind is running on issue {ctx.issue_number}; stop with bin/stop {ctx.run_id}")
     conversation: list[dict] = []
     if os.environ.get(CONVERSATION) == "1":
         ctx.client = Recording(ctx.client, conversation)
@@ -413,14 +420,50 @@ class Executor:
     def call(self, step: dict, tool: str, args: dict):
         """One tool call for a plan step; None when the registry could not confirm a
         write, and the run has ended escalated (the third exit)."""
+        from policy.hook import stopped, append
+        from policy.escalation import signal_for, ask_escalation
+        from harness.roles import action_of
+        action = action_of(tool)
+        from policy.hook import classify
+        facts = self.ctx.tracker.facts(self.ctx.run_id, action, args, self.ctx.issue_number)
+        _, column = classify(action, facts)
+        signal = signal_for(self, action, args) if column != "prohibited" and not stopped(self.ctx.run_id) else None
+        if signal:
+            self.save_state(step, current=step.get("id"))
+            decision = ask_escalation(self, action, args, signal)
+            if decision != "approve":
+                self.ctx.trace.end("stopped" if stopped(self.ctx.run_id) else "held", detail="Escalation awaits an approved decision")
+                return None
+        # Checkpoint every write, including pushes/closes supplied by the plan.
+        if action in ("apply_label", "post_comment", "open_pr", "push_commit", "close_issue", "merge_pr"):
+            step["status"] = "running"
+            step["args"] = args
+            self.save_state(step, current=step.get("id"))
         try:
-            return self.ctx.call_tool(self.calls, tool, args, plan_step=step.get("id"))
+            result = self.ctx.call_tool(self.calls, tool, args, plan_step=step.get("id"))
         except Unverifiable as exc:
-            self.record(step, args, None, "unverifiable")
-            self.ctx.trace.end("escalated", detail=f"step {step.get('id')}: {exc}; a person on review duty decides")
+            self.save_state(step, current=step.get("id"))
+            ask_escalation(self, action, args, ("uninterpretable_result", str(exc)))
+            self.ctx.trace.end("held", detail=str(exc))
             return None
+        policy = self.ctx.tools.policy
+        if policy.pending:
+            reason, policy.pending = policy.pending, None
+            if reason == "stopped" and not any(x["run_id"] == self.ctx.run_id and x["event"] == "effective" for x in __import__("policy.hook", fromlist=["rows"]).rows("logs/stops.jsonl")):
+                append("logs/stops.jsonl", dict(run_id=self.ctx.run_id, event="effective", action=action))
+            self.save_state(step, current=step.get("id"))
+            self.ctx.trace.end(reason, detail="Policy paused this call before execution")
+            return None
+        return result
 
     def filled(self, step: dict, args: dict) -> dict | None:
+        # A valid plan may omit required tool arguments entirely. Fill those
+        # through the executor instead of issuing an invalid empty call.
+        schema = next((t for t in self.ctx.tools.schemas if t["name"] == step.get("tool")), None)
+        args = dict(args)
+        for key in (schema or {}).get("input_schema", {}).get("required", []):
+            if key not in args:
+                args[key] = FILL
         to_fill = [k for k, v in args.items() if str(v).startswith(FILL)]   # "$fill", or "$fill: a note"
         if not to_fill:
             return args
@@ -459,7 +502,8 @@ class Executor:
                 if role(step["tool"]) == "comment":
                     body = arg("comment", "body")
                     label, file = parse_triage_comment(str(filled[body]))
-                    filled[body] = format_triage_comment(label or "bug", file)
+                    from policy.hook import DISCLOSURE
+                    filled[body] = format_triage_comment(label or "bug", file) + "\n" + DISCLOSURE
                 return filled
         return None
 
@@ -549,6 +593,7 @@ class Executor:
         if error is None and result is not None and result.is_error:
             error = "not_found" if "no such file" in text else "tool_error"
         if error is None and role(tool) == "search" and not count:
+            self.ctx.trace.event("not_determined", step=step.get("id"), question="Which file explains this issue? Empty search is not evidence of absence.")
             error = "no_matches"
         status = "skipped" if error == "skipped" else "failed" if error else "done"
         entry = {"id": step.get("id"), "tool": tool, "status": status, "count": count,
@@ -563,7 +608,7 @@ class Executor:
             self.completed.append({"step": step.get("id"), "tool": tool, "args": args, "key": result.key,
                                    "result": text[:CONTEXT_CHARS], "status": status, "count": count,
                                    "paths": paths, "error_code": error})
-            if role(tool) == "read_file":
+            if role(tool) in ("read_file", "apply_label", "comment", "open_pr", "push_commit", "close_issue", "merge_pr") :
                 self.save_state(step)             # after the expensive read, so a replay does not repeat it
         return entry
 

@@ -1,0 +1,1 @@
+Pilot review excluded prospectively because the original screen lacked source evidence and some decisions received assistant guidance. All outcomes preserved. Official course discard archives traces and remote rows; token costs remain in ledger. New diagnostics select only current real-model traces.

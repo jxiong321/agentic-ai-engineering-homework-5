@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4316-s01-3b3d73",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4316",
+  "branch": "repomind/issue-4316",
+  "title": "Do not retry SMTP sends on permanent 5xx errors",
+  "body": "File: src/notifications/email.ts\n\nDo not retry SMTP sends on permanent errors (5xx response codes), as permanent rejections will not change on retry and unnecessarily load the relay. Only temporary 4xx errors or network failures should be retried."
+ },
+ "facts": {
+  "issue": 4316,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4316",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "6ed8e1868c06",
+ "asked_at": "2026-11-06T06:15:59.308Z"
+}

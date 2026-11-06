@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4331-s01-2d6a39",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: src/exportUtils.ts\n\nNeutralise cell values starting with `=`, `+`, `-`, or `@` in CSV exports by prefixing them with a single quote or escaping them so spreadsheet applications do not interpret them as formulas.",
+  "branch": "repomind/issue-4331",
+  "title": "Neutralise formula-like text values in CSV exports",
+  "issue": "issue-4331"
+ },
+ "facts": {
+  "issue": 4331,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4331",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "0ddb1906fdbd",
+ "asked_at": "2026-11-06T06:25:25.999Z"
+}

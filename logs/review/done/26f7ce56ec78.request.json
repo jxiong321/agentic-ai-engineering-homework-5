@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4302-s01-f04a7f",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4302",
+  "title": "Correct parsing of amounts with decimal commas and thousand separators",
+  "body": "File: src/ingest/parser.ts\n\nStrip thousand separators (dots) and replace decimal commas with periods in numeric amounts during parsing or type conversion, ensuring Belgian and French bank statement amounts with decimal commas are correctly parsed instead of being multiplied by one hundred.",
+  "issue": "issue-4302"
+ },
+ "facts": {
+  "issue": 4302,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 20.1,
+  "label": null,
+  "branch": "repomind/issue-4302",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "26f7ce56ec78",
+ "asked_at": "2026-11-06T05:20:15.928Z"
+}

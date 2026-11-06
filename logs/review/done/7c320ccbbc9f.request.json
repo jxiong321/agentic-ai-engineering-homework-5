@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4310-s01-454cac",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Check account ownership when creating or updating a report",
+  "body": "File: src/api/reports.ts\n\nAdd an account ownership check when creating or updating a report (similar to assertOwnsAccount in uploads.ts) so a user cannot create or modify a report with an accountId belonging to someone else.",
+  "issue": "issue-4310",
+  "branch": "repomind/issue-4310"
+ },
+ "facts": {
+  "issue": 4310,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4310",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "7c320ccbbc9f",
+ "asked_at": "2026-11-06T06:07:46.401Z"
+}

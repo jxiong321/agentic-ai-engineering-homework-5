@@ -141,7 +141,9 @@ def load_definition(module: str) -> dict:
 class ToolRegistry:
     def __init__(self, ctx: RunContext, modules=MODULES):
         self.ctx = ctx
-        self.hooks: list = [allow_all]
+        from policy.hook import PolicyHook
+        self.policy = PolicyHook(ctx)
+        self.hooks: list = [self.policy]
         self.protocol_errors = 0
         self._tools: dict[str, tuple[str, dict, object]] = {}
         for module in modules:

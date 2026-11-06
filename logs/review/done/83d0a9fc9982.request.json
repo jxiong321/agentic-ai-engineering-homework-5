@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4306-s01-0744b7",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4306",
+  "branch": "repomind/issue-4306",
+  "title": "Reset file input state on upload failure to allow retrying",
+  "body": "File: src/components/UploadForm.tsx\n\nClear the file input's value or reset the selected file state upon a failed upload submission so that selecting the same file again triggers the change event and allows retrying without reloading the page."
+ },
+ "facts": {
+  "issue": 4306,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 42.1,
+  "label": null,
+  "branch": "repomind/issue-4306",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "83d0a9fc9982",
+ "asked_at": "2026-11-06T06:04:28.870Z"
+}

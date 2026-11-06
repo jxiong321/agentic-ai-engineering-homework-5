@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4301-s01-655da3",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Advance next run time on scheduled export failure to prevent loops",
+  "body": "File: src/export/scheduler.ts\n\nAdvance the schedule's next run time even when sending the export fails, so large reports that fail with connection errors do not loop indefinitely every five minutes.",
+  "branch": "repomind/issue-4301",
+  "issue": "issue-4301"
+ },
+ "facts": {
+  "issue": 4301,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4301",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "01c87fe2cfac",
+ "asked_at": "2026-11-06T04:42:29.726Z"
+}

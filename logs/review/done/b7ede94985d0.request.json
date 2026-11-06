@@ -1,0 +1,22 @@
+{
+ "run_id": "planned-4306-s01-0744b7",
+ "action": "post_comment",
+ "action_class": "post_comment/human_active",
+ "args": {
+  "body": "label: bug\nfile: src/components/UploadForm.tsx\nWritten by RepoMind, an automated AI agent. To reach a person, reply requesting a human maintainer.",
+  "issue": "issue-4306"
+ },
+ "facts": {
+  "issue": 4306,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 42.6,
+  "label": null,
+  "branch": null,
+  "branch_protected": null,
+  "base": null,
+  "target_created_by_agent": false,
+  "paths": []
+ },
+ "request_id": "b7ede94985d0",
+ "asked_at": "2026-11-06T06:05:02.468Z"
+}

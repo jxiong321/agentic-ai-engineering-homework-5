@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4301-s01-db0d84",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4301",
+  "branch": "repomind/issue-4301",
+  "body": "File: src/export/scheduler.ts\n\nAdvance the schedule's next run time even when sending the export fails, preventing repeated failures on every tick from getting stuck in an infinite retry loop.",
+  "title": "Advance scheduled export time on failure to prevent retry loops"
+ },
+ "facts": {
+  "issue": 4301,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4301",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "ad29caf1296a",
+ "asked_at": "2026-11-06T05:59:54.421Z"
+}

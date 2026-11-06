@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4322-s01-7ecbeb",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: docs/CONFIG.md\n\nAdd a YAML Key column to each configuration table in docs/CONFIG.md so readers can see the corresponding nested camelCase key used in config/app.yaml for each environment variable.",
+  "title": "Add YAML keys to configuration reference tables in docs/CONFIG.md",
+  "issue": "issue-4322",
+  "branch": "repomind/issue-4322"
+ },
+ "facts": {
+  "issue": 4322,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4322",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "c818301829ea",
+ "asked_at": "2026-11-06T06:19:10.130Z"
+}

@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4339-s01-407d82",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: src/components/UploadForm.tsx\n\nPoll the upload status after a successful upload until it completes or fails, displaying the imported row counts, duplicate count, or error message in the form.",
+  "issue": "issue-4339",
+  "branch": "repomind/issue-4339",
+  "title": "Show import progress and results in the upload form"
+ },
+ "facts": {
+  "issue": 4339,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 46.1,
+  "label": null,
+  "branch": "repomind/issue-4339",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "dc1ae101a620",
+ "asked_at": "2026-11-06T06:29:10.899Z"
+}

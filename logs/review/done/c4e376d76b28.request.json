@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4333-s01-c213a8",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: docs/API.md\n\nAdd the missing fields `id`, `filename`, `createdAt` and `finishedAt` to the documented response of GET /uploads/:id so the API documentation matches what the handler actually returns.",
+  "issue": "issue-4333",
+  "branch": "repomind/issue-4333",
+  "title": "Document missing fields in GET /uploads/:id response in API.md"
+ },
+ "facts": {
+  "issue": 4333,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4333",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "c4e376d76b28",
+ "asked_at": "2026-11-06T06:26:27.908Z"
+}

@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4328-s01-f983a9",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Destroy HTTP server connections on shutdown to prevent timeout",
+  "branch": "repomind/issue-4328",
+  "body": "File: src/index.ts\n\nDestroy active keep-alive connections on the HTTP server before closing it during shutdown, so idle load-balancer connections do not prevent the server from shutting down gracefully within the timeout.",
+  "issue": "issue-4328"
+ },
+ "facts": {
+  "issue": 4328,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4328",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "c0c330eb2340",
+ "asked_at": "2026-11-06T06:24:03.683Z"
+}

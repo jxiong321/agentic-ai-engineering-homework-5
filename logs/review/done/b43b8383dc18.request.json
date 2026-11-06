@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4302-s01-472d40",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4302",
+  "body": "File: src/util/money.ts\n\nUpdate parseAmount to correctly handle European number formats where the comma is used as a decimal separator (e.g. \"-12,50\" or \"1.234,56\") rather than unconditionally stripping commas, so amounts from Belgian and French bank exports are parsed correctly.",
+  "branch": "repomind/issue-4302",
+  "title": "Support European decimal commas in bank amount parser"
+ },
+ "facts": {
+  "issue": 4302,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 20.1,
+  "label": null,
+  "branch": "repomind/issue-4302",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "b43b8383dc18",
+ "asked_at": "2026-11-06T06:00:25.837Z"
+}

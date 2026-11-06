@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""Resume saved actions without making or substituting any model call.
+
+A missing API key is replaced only to initialize the existing provider client.
+ModelClient.create is guarded: any need for model work aborts, never fabricates a response.
+"""
+import os
+from pathlib import Path
+import sys
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+os.chdir(ROOT)
+from harness.client import ModelClient
+from harness.runner import resume_run
+
+def no_model_call(*args, **kwargs):
+    raise RuntimeError("Saved state requires a new model call; rerun normally in the key-bearing terminal.")
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        raise SystemExit('Usage: bin/resume_saved RUN_ID ...')
+    os.environ.setdefault('GEMINI_API_KEY', 'offline-initialization-only')
+    os.environ['REVIEWER'] = 'scripted:approve-all'
+    ModelClient.create = no_model_call
+    for run_id in sys.argv[1:]:
+        result = resume_run(run_id)
+        if result.get('error'):
+            raise SystemExit(result['error'])

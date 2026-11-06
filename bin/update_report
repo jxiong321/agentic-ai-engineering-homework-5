@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+"""Recompute human review diagnostics from recorded evidence; never create decisions."""
+import json
+import os
+from pathlib import Path
+import statistics
+import sys
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+os.chdir(ROOT)
+from policy.hook import rows
+from harness.backends import REAL_BACKENDS
+
+def main():
+    path = ROOT / 'reports/LAB_05.json'
+    data = json.loads(path.read_text())
+    real = set()
+    for p in (ROOT / 'runs').glob('*.jsonl'):
+        if any(x.get('type') == 'run_start' and x.get('backend') in REAL_BACKENDS for x in rows(p.relative_to(ROOT))):
+            real.add(p.stem)
+    decisions = [x for x in rows('logs/approvals.jsonl') if x.get('run_id') in real and x.get('reviewer') == 'human' and x.get('kind') == 'approval' and x.get('decision') in ('approve', 'deny')]
+    classes = [x['action_class'] for x in data['ranking'] if x['undo'] == 'none' and x['blast'] == 'wide']
+    important = [x for x in decisions if x['action_class'] in classes]
+    def rate(ds): return sum(x['decision'] == 'approve' for x in ds) / len(ds) if ds else None
+    groups = {}
+    for x in decisions:
+        if isinstance(x.get('seconds'), (int, float)):
+            groups.setdefault(x['action_class'], []).append(x['seconds'])
+    data['diagnostics'] = dict(decisions=len(decisions), approval_rate_all=rate(decisions), approval_rate_irreversible_wide=rate(important), irreversible_wide_classes=classes, median_seconds_by_class={k: statistics.median(v) for k, v in groups.items()})
+    path.write_text(json.dumps(data, indent=2)+'\n')
+    print(json.dumps(data['diagnostics'], indent=2))
+
+if __name__ == '__main__': main()

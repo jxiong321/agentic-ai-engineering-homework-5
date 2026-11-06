@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from harness.tracker import Tracker
+if len(sys.argv) != 2:
+    raise SystemExit("Usage: bin/rollback RUN_ID")
+run_id = sys.argv[1]
+remote = Tracker()
+seen = set()
+for row in reversed(remote.log(run_id)):
+    action, key = row["action"], row.get("key")
+    if action not in ("apply_label", "open_pr", "close_issue", "post_comment", "push_commit", "merge_pr") or row["outcome"] not in ("written", "replayed", "timeout_after_commit") or (action, key) in seen:
+        continue
+    seen.add((action, key))
+    info = {"apply_label": ("label", "remove_label"), "open_pr": ("pr", "close_pr"), "close_issue": ("close", "reopen_issue")}.get(action)
+    if info:
+        target = remote.by_key(run_id, info[0], key)
+        if target is None:
+            raise SystemExit("Cannot locate original write: " + str(row))
+        getattr(remote, info[1])(run_id, target["id"])
+        print(action, row["target"], info[1])
+    else:
+        print(action, row["target"], "none")

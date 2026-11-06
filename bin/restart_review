@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""Archive the original review pilot using the course's discard mechanism, then review afresh."""
+import json
+import os
+from pathlib import Path
+import runpy
+import shutil
+import sqlite3
+import sys
+from datetime import datetime, timezone
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+os.chdir(ROOT)
+from harness.runner import discard, is_trace, run_header
+from harness import switches
+from policy.hook import rows
+
+
+def main():
+    if not os.environ.get('GEMINI_API_KEY'):
+        raise SystemExit('Use the same terminal where ping worked. The key is not set here.')
+    issues = {int(p.stem) for folder in ('day', 'day2') for p in (ROOT/'fixtures/issues'/folder).glob('*.md')}
+    pilot_ids = set()
+    for p in (ROOT/'runs').glob('*.jsonl'):
+        header = run_header(p) if is_trace(p) else None
+        if header and header.get('issue') in issues and header.get('way') == 'planned':
+            pilot_ids.add(header['run_id'])
+    stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    pilot = ROOT/'reports'/'review-pilot'/stamp
+    pilot.mkdir(parents=True, exist_ok=True)
+    # Preserve snapshots; never remove or relabel historical human decisions.
+    approvals = [x for x in rows('logs/approvals.jsonl') if x.get('run_id') in pilot_ids]
+    (pilot/'approvals.jsonl').write_text(''.join(json.dumps(x)+'\n' for x in approvals))
+    (pilot/'README.txt').write_text('Pilot review excluded prospectively because the original screen lacked source evidence and some decisions received assistant guidance. All outcomes preserved. Official course discard archives traces and remote rows; token costs remain in ledger. New diagnostics select only current real-model traces.\n')
+    for p in (ROOT/'logs/review/pending').glob('*.json'):
+        if json.loads(p.read_text()).get('run_id') in pilot_ids:
+            p.rename(pilot/p.name)
+    memory = ROOT/'state/store.db'
+    if memory.exists():
+        with sqlite3.connect(memory) as db, sqlite3.connect(pilot/'store-before-restart.db') as backup:
+            db.backup(backup)
+            marks = ','.join('?' for _ in issues)
+            # The new run must not treat a pilot's derived triage as an established finding.
+            db.execute(f"UPDATE records SET active=0 WHERE issue IN ({marks}) AND kind='episodic' AND source='memory' AND origin='derived'", tuple(sorted(issues)))
+    discard('planned', sorted(issues), root=ROOT, switches=switches.current())
+    record = dict(reason='Fresh review after source-evidence screen correction; all prior day reviews are pilot observations.', pilot_run_ids=sorted(pilot_ids), archive=str(pilot.relative_to(ROOT)))
+    (pilot/'restart.json').write_text(json.dumps(record, indent=2)+'\n')
+    report = ROOT/'reports/LAB_05.md'
+    with report.open('a') as f:
+        f.write('\n## Fresh human-review sample\n\nThe student requested a complete restart because the original screen did not support informed judgment. The pre-restart day runs are retained as a pilot via the course discard mechanism; their traces, remote rows, decisions and token costs remain available. Pilot outcomes are not included in the fresh sample. Derived pilot triage memories are inactive, with a full store snapshot preserved. Archive: '+str(pilot.relative_to(ROOT))+'\n')
+    print('Earlier review attempts preserved as pilot data. Starting fresh with source evidence.', flush=True)
+    runpy.run_path(str(ROOT/'bin/review_day'), run_name='__main__')
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4326-s01-8980ad",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4326",
+  "branch": "repomind/issue-4326",
+  "body": "File: src/config.ts\n\nTreat empty string values for S3_REGION as unset so that config/app.yaml or the default \"eu-west-1\" is used instead of failing with an empty region.",
+  "title": "Fall back to default region when S3_REGION is an empty string"
+ },
+ "facts": {
+  "issue": 4326,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4326",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "c508b79a79c8",
+ "asked_at": "2026-11-06T06:23:04.619Z"
+}

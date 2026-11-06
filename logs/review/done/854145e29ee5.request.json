@@ -1,0 +1,22 @@
+{
+ "run_id": "planned-4332-s01-e15a47",
+ "action": "post_comment",
+ "action_class": "post_comment/human_quiet",
+ "args": {
+  "body": "label: docs\nfile: docs/help/bank-statements.md\nWritten by RepoMind, an automated AI agent. To reach a person, reply requesting a human maintainer.",
+  "issue": "issue-4332"
+ },
+ "facts": {
+  "issue": 4332,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": null,
+  "branch_protected": null,
+  "base": null,
+  "target_created_by_agent": false,
+  "paths": []
+ },
+ "request_id": "854145e29ee5",
+ "asked_at": "2026-11-06T06:26:17.242Z"
+}

@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4307-s01-e6b3b7",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: src/api/health.ts\n\nRead the version from package.json (or an imported module/constant) rather than process.env.npm_package_version, which is only set when running via npm run / npm start and evaluates to \"dev\" when starting via node directly in production containers.",
+  "branch": "repomind/issue-4307",
+  "title": "Read application version from package.json instead of npm_package_version",
+  "issue": "issue-4307"
+ },
+ "facts": {
+  "issue": 4307,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4307",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "7cf8284d9481",
+ "asked_at": "2026-11-06T05:33:51.639Z"
+}

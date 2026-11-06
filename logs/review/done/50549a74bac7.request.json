@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4315-s01-9873a1",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4315",
+  "issue": "issue-4315",
+  "title": "Fix date presets picking tomorrow's date in the evening due to UTC offset",
+  "body": "File: src/components/DateRangePicker.tsx\n\nUse UTC-based date calculations or the user's local date when instantiating `today` in `thisMonth` and `lastDays` presets, preventing evening offset rollovers caused by `new Date()` defaulting to local time while ISO date formatting uses UTC."
+ },
+ "facts": {
+  "issue": 4315,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 33.1,
+  "label": null,
+  "branch": "repomind/issue-4315",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "50549a74bac7",
+ "asked_at": "2026-11-06T06:15:26.927Z"
+}

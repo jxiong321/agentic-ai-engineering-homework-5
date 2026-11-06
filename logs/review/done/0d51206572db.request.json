@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4304-s01-f06a01",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4304",
+  "branch": "repomind/issue-4304",
+  "title": "Handle storage errors per key in purgeExpiredFailedUploads",
+  "body": "File: src/ingest/worker.ts\n\nWrap the storage.remove call in purgeExpiredFailedUploads in a try/catch block so that an AccessDenied or other storage error on a single object key does not abort the purge loop and prevent subsequent expired failed uploads from being deleted."
+ },
+ "facts": {
+  "issue": 4304,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4304",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "0d51206572db",
+ "asked_at": "2026-11-06T06:01:54.086Z"
+}

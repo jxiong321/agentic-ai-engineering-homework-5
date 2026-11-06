@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4319-s01-787271",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Trim whitespace from currency codes during import validation",
+  "issue": "issue-4319",
+  "branch": "repomind/issue-4319",
+  "body": "File: src/importer/validators.ts\n\nTrim whitespace from currency code values before checking them against the currency code validator, allowing padded values like \" USD\" to import successfully."
+ },
+ "facts": {
+  "issue": 4319,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4319",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "86e66d0093d5",
+ "asked_at": "2026-11-06T06:17:05.569Z"
+}

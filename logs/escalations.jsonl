@@ -1,0 +1,11 @@
+{"at": "2026-11-06T04:21:16.010Z", "run_id": "planned-4501-s01-940a73", "event": "asked", "signal": "failed_verification"}
+{"at": "2026-11-06T04:39:30.685Z", "run_id": "planned-4192-s01-87f751", "event": "asked", "signal": "memory_contradiction"}
+{"at": "2026-11-06T04:39:31.251Z", "run_id": "planned-4191-s02-cf01ec", "event": "asked", "signal": "memory_contradiction"}
+{"at": "2026-11-06T04:39:34.039Z", "run_id": "planned-4192-s02-552763", "event": "asked", "signal": "memory_contradiction"}
+{"at": "2026-11-06T04:39:34.972Z", "run_id": "planned-4191-s03-7069ef", "event": "asked", "signal": "memory_contradiction"}
+{"at": "2026-11-06T04:39:41.316Z", "run_id": "planned-4192-s03-febd5a", "event": "cap_hit", "signal": "memory_contradiction"}
+{"at": "2026-11-06T04:39:47.409Z", "run_id": "planned-4192-s04-578f52", "event": "cap_hit", "signal": "memory_contradiction"}
+{"at": "2026-11-06T04:39:51.382Z", "run_id": "planned-4192-s05-d4a84e", "event": "cap_hit", "signal": "memory_contradiction"}
+{"at": "2026-11-06T06:31:29.680Z", "run_id": "planned-4192-s03-febd5a", "event": "asked", "signal": "memory_contradiction"}
+{"at": "2026-11-06T06:31:29.789Z", "run_id": "planned-4192-s04-578f52", "event": "asked", "signal": "memory_contradiction"}
+{"at": "2026-11-06T06:31:29.869Z", "run_id": "planned-4192-s05-d4a84e", "event": "asked", "signal": "memory_contradiction"}

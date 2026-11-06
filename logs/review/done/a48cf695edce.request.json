@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4309-s01-2d123d",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4309",
+  "title": "Return 400 Bad Request for malformed JSON request bodies",
+  "body": "File: src/server.ts\n\nAdd an error-handling middleware or handle the SyntaxError thrown by express.json() so that requests with malformed JSON bodies receive a 400 Bad Request instead of a 500 Internal Server Error.",
+  "issue": "issue-4309"
+ },
+ "facts": {
+  "issue": 4309,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4309",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "a48cf695edce",
+ "asked_at": "2026-11-06T05:37:09.445Z"
+}

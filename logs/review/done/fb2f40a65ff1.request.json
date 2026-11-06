@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4314-s01-f2e016",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4314",
+  "branch": "repomind/issue-4314",
+  "title": "Add a totals row by currency to XLSX exports",
+  "body": "File: src/export/xlsx.ts\n\nAdd a totals row at the bottom of the XLSX export for each currency present in the report."
+ },
+ "facts": {
+  "issue": 4314,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4314",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "fb2f40a65ff1",
+ "asked_at": "2026-11-06T06:10:20.024Z"
+}

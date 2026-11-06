@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4308-s01-861f89",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Clarify minor units and negative outflow in GET /reports/:id/totals docs",
+  "body": "File: docs/API.md\n\nClarify in the API reference for GET /reports/:id/totals that amounts are returned in minor units (cents) and that outflow is negative.",
+  "issue": "issue-4308",
+  "branch": "repomind/issue-4308"
+ },
+ "facts": {
+  "issue": 4308,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4308",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "548d4480e903",
+ "asked_at": "2026-11-06T05:35:07.847Z"
+}

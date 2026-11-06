@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+"""Run the real-model stop/resume and rollback measurements, one run at a time."""
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+os.chdir(ROOT)
+from policy.hook import rows
+from harness.clock import seconds_between
+from harness.tracker import Tracker
+import statistics
+
+PYTHON = sys.executable
+ENV = {**os.environ, 'REVIEWER': 'scripted:approve-all'}
+
+def run(*args):
+    subprocess.run([PYTHON, *args], env=ENV, check=True)
+
+def report():
+    return json.loads((ROOT / 'reports/LAB_05.json').read_text())
+
+def save(data):
+    (ROOT / 'reports/LAB_05.json').write_text(json.dumps(data, indent=2) + '\n')
+
+def main():
+    (ROOT / 'logs').mkdir(exist_ok=True)
+    if not os.environ.get('GEMINI_API_KEY'):
+        raise SystemExit('This terminal needs GEMINI_API_KEY set first; do not put the key in this script.')
+    data = report()
+    done = list(data['stop']['run_ids'])
+    # Each batch contains both dev issues, five times, with one worker.
+    if len(done) < 10:
+        known = {x['run_id'] for x in rows('logs/notifications.jsonl')}
+        output = ROOT / 'logs/control-batch-output.txt'
+        with output.open('a') as log:
+            proc = subprocess.Popen([PYTHON, 'run.py', '--way', 'planned', '--set', 'dev', '--runs', '5', '--jobs', '1'], env=ENV, stdout=log, stderr=log)
+            requested = []
+            try:
+                while proc.poll() is None:
+                    for row in rows('logs/notifications.jsonl'):
+                        rid = row['run_id']
+                        if row.get('kind') == 'live' and rid not in known:
+                            known.add(rid)
+                            print('Stopping at the first tool boundary:', rid, flush=True)
+                            run('bin/stop', rid)
+                            requested.append(rid)
+                    time.sleep(.1)
+            except BaseException:
+                proc.terminate()
+                proc.wait()
+                raise
+            if proc.returncode:
+                raise SystemExit('Batch failed. Details: logs/control-batch-output.txt')
+        for rid in requested:
+            events = [x for x in rows('logs/stops.jsonl') if x['run_id'] == rid]
+            if not any(x['event'] == 'effective' for x in events):
+                print('Stop did not take effect; excluded:', rid)
+                continue
+            print('Resuming:', rid, flush=True)
+            run('run.py', '--resume', rid)
+            if rid not in done:
+                done.append(rid)
+            timings = []
+            for run_id in done:
+                ev = {x['event']: x['at'] for x in rows('logs/stops.jsonl') if x['run_id'] == run_id}
+                timings.append(seconds_between(ev['requested'], ev['effective']))
+            data = report()
+            data['stop'] = dict(run_ids=done, latencies_s=timings, p50_s=statistics.median(timings), max_s=max(timings), partial_condition='safe')
+            save(data)
+        if len(done) < 10:
+            raise SystemExit(f'Only {len(done)} effective stops; leave the evidence intact and ask Codex to inspect the logs.')
+    # Use a resumed development run with all three required writes.
+    remote = Tracker()
+    data = report()
+    if not data['rollback']['run_id']:
+        candidate = next((rid for rid in done if {'apply_label', 'open_pr', 'post_comment'} <= {x['action'] for x in remote.log(rid) if x['outcome'] in ('written', 'timeout_after_commit')}), None)
+        if candidate is None:
+            raise SystemExit('Stops finished, but no resumed run has all three rollback writes. Ask Codex to inspect.')
+        run('bin/rollback', candidate)
+        original = [x for x in remote.log(candidate) if x['outcome'] in ('written', 'timeout_after_commit')]
+        compensations = {'apply_label': 'remove_label', 'open_pr': 'close_pr', 'close_issue': 'reopen_issue'}
+        data['rollback'] = dict(run_id=candidate, compensated=[dict(action=x['action'], target=x['target'], by=compensations[x['action']]) for x in reversed(original) if x['action'] in compensations], none=[dict(action=x['action'], target=x['target']) for x in reversed(original) if x['action'] not in compensations])
+        save(data)
+    run('checks/check_05.py')
+    print('\nControls collected. Send Codex the result; personal review queue is next.')
+
+if __name__ == '__main__':
+    main()

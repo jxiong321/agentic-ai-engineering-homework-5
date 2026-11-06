@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+"""Run a day queue and the course reviewer in one terminal; only the student decides."""
+import json
+import os
+from pathlib import Path
+import runpy
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+os.chdir(ROOT)
+from harness.reviewer import Reviewer
+from policy.hook import rows
+from harness.backends import REAL_BACKENDS
+console = runpy.run_path(str(ROOT / 'bin/review'))
+
+def human_count():
+    real = {p.stem for p in (ROOT / 'runs').glob('*.jsonl') if '.calls.' not in p.name and any(x.get('type') == 'run_start' and x.get('backend') in REAL_BACKENDS for x in rows(p.relative_to(ROOT)))}
+    return sum(x.get('reviewer') == 'human' and x.get('kind') == 'approval' and x.get('run_id') in real and x.get('decision') in ('approve', 'deny') for x in rows('logs/approvals.jsonl'))
+
+def main():
+    (ROOT / 'logs').mkdir(exist_ok=True)
+    if not os.environ.get('GEMINI_API_KEY'):
+        raise SystemExit('Run this in the terminal where ping worked.')
+    reviewer = Reviewer('human', ROOT)
+    print('Read each proposed action at your normal pace. Choose a=approve or d=deny based on your own judgment.\nThe assignment measures YOUR decisions and reading time.\n', flush=True)
+    skipped = set()
+    for queue in ('day', 'day2'):
+        if queue == 'day2' and human_count() >= 10:
+            break
+        completed = set()
+        for trace in (ROOT / 'runs').glob('*.jsonl'):
+            events = rows(trace.relative_to(ROOT))
+            start = next((x for x in events if x.get('type') == 'run_start'), {})
+            ends = [x for x in events if x.get('type') == 'end']
+            if start.get('reviewer') == 'human' and start.get('backend') in REAL_BACKENDS and ends and ends[-1].get('terminal_reason') == 'completed':
+                completed.add(start.get('issue'))
+        remaining = [int(p.stem) for p in sorted((ROOT / 'fixtures/issues' / queue).glob('*.md')) if int(p.stem) not in completed]
+        if not remaining:
+            continue
+        known_runs = {x['run_id'] for x in rows('logs/notifications.jsonl')}
+        def own_pending():
+            active = {x['run_id'] for x in rows('logs/notifications.jsonl')} - known_runs
+            return [x for x in reviewer.pending() if x['run_id'] in active]
+        print('Starting queue:', queue, flush=True)
+        with (ROOT / f'logs/{queue}-output.txt').open('a') as output:
+            proc = subprocess.Popen([sys.executable, 'run.py', '--way', 'planned', '--issues', ','.join(map(str, remaining)), '--jobs', '1'], env={**os.environ, 'REVIEWER': 'human'}, stdout=output, stderr=output)
+            try:
+                while proc.poll() is None or own_pending():
+                    pending = [r for r in own_pending() if r['request_id'] not in skipped]
+                    for request in pending:
+                        if not console['answer'](reviewer, request):
+                            skipped.add(request['request_id'])
+                            # Skipping defers this run instead of hiding its only
+                            # request while the producer waits for ten minutes.
+                            subprocess.run([sys.executable, 'bin/stop', request['run_id']], check=True)
+                            print('Issue paused for later; moving to the next issue.', flush=True)
+                    if proc.poll() is not None and not pending:
+                        break
+                    time.sleep(.25)
+            except BaseException:
+                proc.terminate()
+                proc.wait()
+                print('Queue ended early. Keep the logs; Codex can inspect and resume held runs.')
+                raise
+            if proc.returncode:
+                raise SystemExit(f'Queue failed; logs/{queue}-output.txt has details. Ask Codex to inspect.')
+    print('Review finished. Human decisions recorded:', human_count())
+    print('Tell Codex you finished; it can calculate diagnostics and finish the report.')
+
+if __name__ == '__main__':
+    main()

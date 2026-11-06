@@ -1,0 +1,22 @@
+[notify live] planned-4191-s01-be37c7: RepoMind is running on issue 4191; stop with bin/stop planned-4191-s01-be37c7
+[notify live] planned-4192-s01-87f751: RepoMind is running on issue 4192; stop with bin/stop planned-4192-s01-87f751
+[notify live] planned-4191-s02-cf01ec: RepoMind is running on issue 4191; stop with bin/stop planned-4191-s02-cf01ec
+[notify live] planned-4192-s02-552763: RepoMind is running on issue 4192; stop with bin/stop planned-4192-s02-552763
+[notify live] planned-4191-s03-7069ef: RepoMind is running on issue 4191; stop with bin/stop planned-4191-s03-7069ef
+[notify live] planned-4192-s03-febd5a: RepoMind is running on issue 4192; stop with bin/stop planned-4192-s03-febd5a
+[notify live] planned-4191-s04-b3a896: RepoMind is running on issue 4191; stop with bin/stop planned-4191-s04-b3a896
+[notify live] planned-4192-s04-578f52: RepoMind is running on issue 4192; stop with bin/stop planned-4192-s04-578f52
+[notify live] planned-4191-s05-d20210: RepoMind is running on issue 4191; stop with bin/stop planned-4191-s05-d20210
+[notify live] planned-4192-s05-d4a84e: RepoMind is running on issue 4192; stop with bin/stop planned-4192-s05-d4a84e
+planned-4191-s01-be37c7              7,819 tok  $0.0043
+planned-4192-s01-87f751              9,658 tok  $0.0059
+planned-4191-s02-cf01ec              5,741 tok  $0.0038
+planned-4192-s02-552763              3,829 tok  $0.0022
+planned-4191-s03-7069ef              9,741 tok  $0.0060
+planned-4192-s03-febd5a              3,810 tok  $0.0021
+planned-4191-s04-b3a896              3,837 tok  $0.0022
+planned-4192-s04-578f52              3,845 tok  $0.0022
+planned-4191-s05-d20210              3,832 tok  $0.0022
+planned-4192-s05-d4a84e              9,652 tok  $0.0058
+
+10 runs, 61,764 tokens, $0.0367, 0 with errors

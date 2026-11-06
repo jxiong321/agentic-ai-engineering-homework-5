@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4306-s01-ab3a35",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "branch": "repomind/issue-4306",
+  "issue": "issue-4306",
+  "body": "File: src/components/UploadForm.tsx\n\nClear the selected file state or input value when an upload fails or when the form resets, so that choosing the same file name again triggers the file input's change event.",
+  "title": "Clear file input on upload failure to allow retrying the same file"
+ },
+ "facts": {
+  "issue": 4306,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 42.1,
+  "label": null,
+  "branch": "repomind/issue-4306",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "24f3ba7613d6",
+ "asked_at": "2026-11-06T05:32:57.181Z"
+}

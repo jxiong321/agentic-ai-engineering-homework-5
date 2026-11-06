@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4320-s01-c08add",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Support configurable send time and time zone for scheduled exports",
+  "body": "File: src/export/scheduler.ts\n\nAllow configuring a send hour and time zone in the report schedule, replacing the hardcoded 06:00 UTC run time so scheduled exports arrive at the user's preferred time.",
+  "issue": "issue-4320",
+  "branch": "repomind/issue-4320"
+ },
+ "facts": {
+  "issue": 4320,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 51.1,
+  "label": null,
+  "branch": "repomind/issue-4320",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "10f5322222d7",
+ "asked_at": "2026-11-06T06:17:54.594Z"
+}

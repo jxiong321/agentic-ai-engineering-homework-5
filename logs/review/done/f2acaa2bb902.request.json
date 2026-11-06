@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4305-s01-f1b64c",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "body": "File: src/api/users.ts\n\nAllow users to update the email address on their account in profile update requests.",
+  "branch": "repomind/issue-4305",
+  "issue": "issue-4305",
+  "title": "Allow updating account email address in user profile"
+ },
+ "facts": {
+  "issue": 4305,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4305",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "f2acaa2bb902",
+ "asked_at": "2026-11-06T05:28:56.026Z"
+}

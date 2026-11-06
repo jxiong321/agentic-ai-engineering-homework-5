@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4323-s01-d5fd08",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "title": "Catch invalid timezones during weekly rollup to prevent worker crashes",
+  "body": "File: src/workers/rollup.ts\n\nWrap the timezone-dependent weekly rollup calculation in a try/catch block so that an invalid timezone string on a single user's account logs a warning and skips that user instead of crashing the entire rollup worker and skipping all subsequent users.",
+  "issue": "issue-4323",
+  "branch": "repomind/issue-4323"
+ },
+ "facts": {
+  "issue": 4323,
+  "issue_opened_by_agent": true,
+  "minutes_since_human_comment": null,
+  "label": null,
+  "branch": "repomind/issue-4323",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "2802b05c4f33",
+ "asked_at": "2026-11-06T06:19:41.773Z"
+}

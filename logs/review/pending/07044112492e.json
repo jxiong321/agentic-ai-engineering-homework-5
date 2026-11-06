@@ -1,0 +1,24 @@
+{
+ "run_id": "planned-4315-s01-cd6897",
+ "action": "open_pr",
+ "action_class": "open_pr/develop",
+ "args": {
+  "issue": "issue-4315",
+  "title": "Fix date presets picking tomorrow's date in evening hours",
+  "body": "File: src/components/DateRangePicker.tsx\n\nUse UTC-based date methods or construct dates using UTC components in thisMonth and lastDays (or format dates using local date components) so that date presets do not shift to the next day in evening hours due to local time zone offsets.",
+  "branch": "repomind/issue-4315"
+ },
+ "facts": {
+  "issue": 4315,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 33.1,
+  "label": null,
+  "branch": "repomind/issue-4315",
+  "branch_protected": false,
+  "base": "develop",
+  "target_created_by_agent": true,
+  "paths": []
+ },
+ "request_id": "07044112492e",
+ "asked_at": "2026-11-06T06:11:12.973Z"
+}

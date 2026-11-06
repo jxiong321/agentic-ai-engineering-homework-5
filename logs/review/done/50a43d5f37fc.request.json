@@ -1,0 +1,22 @@
+{
+ "run_id": "planned-4315-s01-9873a1",
+ "action": "post_comment",
+ "action_class": "post_comment/human_active",
+ "args": {
+  "issue": "issue-4315",
+  "body": "label: bug\nfile: src/components/DateRangePicker.tsx\nWritten by RepoMind, an automated AI agent. To reach a person, reply requesting a human maintainer."
+ },
+ "facts": {
+  "issue": 4315,
+  "issue_opened_by_agent": false,
+  "minutes_since_human_comment": 33.3,
+  "label": null,
+  "branch": null,
+  "branch_protected": null,
+  "base": null,
+  "target_created_by_agent": false,
+  "paths": []
+ },
+ "request_id": "50a43d5f37fc",
+ "asked_at": "2026-11-06T06:15:40.087Z"
+}

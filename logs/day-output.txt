@@ -1,0 +1,81 @@
+[notify live] planned-4301-s01-655da3: RepoMind is running on issue 4301; stop with bin/stop planned-4301-s01-655da3
+[notify live] planned-4302-s01-fed83a: RepoMind is running on issue 4302; stop with bin/stop planned-4302-s01-fed83a
+[notify live] planned-4301-s01-2d1aee: RepoMind is running on issue 4301; stop with bin/stop planned-4301-s01-2d1aee
+[notify live] planned-4302-s01-f04a7f: RepoMind is running on issue 4302; stop with bin/stop planned-4302-s01-f04a7f
+[notify live] planned-4303-s01-4b0c43: RepoMind is running on issue 4303; stop with bin/stop planned-4303-s01-4b0c43
+[notify live] planned-4304-s01-f7a6df: RepoMind is running on issue 4304; stop with bin/stop planned-4304-s01-f7a6df
+[notify live] planned-4305-s01-f1b64c: RepoMind is running on issue 4305; stop with bin/stop planned-4305-s01-f1b64c
+[notify live] planned-4306-s01-ab3a35: RepoMind is running on issue 4306; stop with bin/stop planned-4306-s01-ab3a35
+[notify live] planned-4307-s01-e6b3b7: RepoMind is running on issue 4307; stop with bin/stop planned-4307-s01-e6b3b7
+[notify live] planned-4308-s01-861f89: RepoMind is running on issue 4308; stop with bin/stop planned-4308-s01-861f89
+[notify live] planned-4309-s01-2d123d: RepoMind is running on issue 4309; stop with bin/stop planned-4309-s01-2d123d
+[notify live] planned-4310-s01-218465: RepoMind is running on issue 4310; stop with bin/stop planned-4310-s01-218465
+[notify live] planned-4301-s01-db0d84: RepoMind is running on issue 4301; stop with bin/stop planned-4301-s01-db0d84
+[notify live] planned-4302-s01-472d40: RepoMind is running on issue 4302; stop with bin/stop planned-4302-s01-472d40
+[notify live] planned-4303-s01-0d8d72: RepoMind is running on issue 4303; stop with bin/stop planned-4303-s01-0d8d72
+[notify live] planned-4304-s01-f06a01: RepoMind is running on issue 4304; stop with bin/stop planned-4304-s01-f06a01
+[notify live] planned-4305-s01-a64511: RepoMind is running on issue 4305; stop with bin/stop planned-4305-s01-a64511
+[notify live] planned-4306-s01-0744b7: RepoMind is running on issue 4306; stop with bin/stop planned-4306-s01-0744b7
+[notify live] planned-4307-s01-1a2b86: RepoMind is running on issue 4307; stop with bin/stop planned-4307-s01-1a2b86
+[notify live] planned-4308-s01-ffb6c0: RepoMind is running on issue 4308; stop with bin/stop planned-4308-s01-ffb6c0
+[notify live] planned-4309-s01-62d430: RepoMind is running on issue 4309; stop with bin/stop planned-4309-s01-62d430
+[notify live] planned-4310-s01-454cac: RepoMind is running on issue 4310; stop with bin/stop planned-4310-s01-454cac
+[notify live] planned-4311-s01-59c983: RepoMind is running on issue 4311; stop with bin/stop planned-4311-s01-59c983
+[notify live] planned-4312-s01-b3b36d: RepoMind is running on issue 4312; stop with bin/stop planned-4312-s01-b3b36d
+[notify live] planned-4313-s01-6f3cfb: RepoMind is running on issue 4313; stop with bin/stop planned-4313-s01-6f3cfb
+[notify live] planned-4314-s01-f2e016: RepoMind is running on issue 4314; stop with bin/stop planned-4314-s01-f2e016
+[notify live] planned-4315-s01-cd6897: RepoMind is running on issue 4315; stop with bin/stop planned-4315-s01-cd6897
+[notify live] planned-4315-s01-9873a1: RepoMind is running on issue 4315; stop with bin/stop planned-4315-s01-9873a1
+[notify live] planned-4316-s01-3b3d73: RepoMind is running on issue 4316; stop with bin/stop planned-4316-s01-3b3d73
+[notify live] planned-4317-s01-9d0e7b: RepoMind is running on issue 4317; stop with bin/stop planned-4317-s01-9d0e7b
+[notify live] planned-4318-s01-11c32d: RepoMind is running on issue 4318; stop with bin/stop planned-4318-s01-11c32d
+[notify live] planned-4319-s01-787271: RepoMind is running on issue 4319; stop with bin/stop planned-4319-s01-787271
+[notify live] planned-4320-s01-c08add: RepoMind is running on issue 4320; stop with bin/stop planned-4320-s01-c08add
+[notify live] planned-4321-s01-e4c831: RepoMind is running on issue 4321; stop with bin/stop planned-4321-s01-e4c831
+[notify live] planned-4322-s01-7ecbeb: RepoMind is running on issue 4322; stop with bin/stop planned-4322-s01-7ecbeb
+[notify live] planned-4323-s01-d5fd08: RepoMind is running on issue 4323; stop with bin/stop planned-4323-s01-d5fd08
+[notify live] planned-4324-s01-870ab3: RepoMind is running on issue 4324; stop with bin/stop planned-4324-s01-870ab3
+[notify live] planned-4325-s01-30af6a: RepoMind is running on issue 4325; stop with bin/stop planned-4325-s01-30af6a
+[notify live] planned-4326-s01-8980ad: RepoMind is running on issue 4326; stop with bin/stop planned-4326-s01-8980ad
+[notify live] planned-4327-s01-35418d: RepoMind is running on issue 4327; stop with bin/stop planned-4327-s01-35418d
+[notify live] planned-4328-s01-f983a9: RepoMind is running on issue 4328; stop with bin/stop planned-4328-s01-f983a9
+[notify live] planned-4329-s01-23c171: RepoMind is running on issue 4329; stop with bin/stop planned-4329-s01-23c171
+[notify live] planned-4330-s01-1f674d: RepoMind is running on issue 4330; stop with bin/stop planned-4330-s01-1f674d
+[notify live] planned-4331-s01-2d6a39: RepoMind is running on issue 4331; stop with bin/stop planned-4331-s01-2d6a39
+[notify live] planned-4332-s01-e15a47: RepoMind is running on issue 4332; stop with bin/stop planned-4332-s01-e15a47
+[notify live] planned-4333-s01-c213a8: RepoMind is running on issue 4333; stop with bin/stop planned-4333-s01-c213a8
+[notify live] planned-4334-s01-5530d8: RepoMind is running on issue 4334; stop with bin/stop planned-4334-s01-5530d8
+[notify live] planned-4335-s01-051adb: RepoMind is running on issue 4335; stop with bin/stop planned-4335-s01-051adb
+[notify live] planned-4336-s01-bbc6d2: RepoMind is running on issue 4336; stop with bin/stop planned-4336-s01-bbc6d2
+[notify live] planned-4337-s01-9f25d1: RepoMind is running on issue 4337; stop with bin/stop planned-4337-s01-9f25d1
+[notify live] planned-4338-s01-72a884: RepoMind is running on issue 4338; stop with bin/stop planned-4338-s01-72a884
+[notify live] planned-4339-s01-407d82: RepoMind is running on issue 4339; stop with bin/stop planned-4339-s01-407d82
+[notify live] planned-4340-s01-2636ea: RepoMind is running on issue 4340; stop with bin/stop planned-4340-s01-2636ea
+planned-4315-s01-9873a1             11,288 tok  $0.0050
+planned-4316-s01-3b3d73             19,469 tok  $0.0095
+planned-4317-s01-9d0e7b             11,424 tok  $0.0056
+planned-4318-s01-11c32d             19,810 tok  $0.0100
+planned-4319-s01-787271             16,136 tok  $0.0083
+planned-4320-s01-c08add             11,934 tok  $0.0051
+planned-4321-s01-e4c831             19,720 tok  $0.0110
+planned-4322-s01-7ecbeb             10,938 tok  $0.0048
+planned-4323-s01-d5fd08             14,645 tok  $0.0071
+planned-4324-s01-870ab3             12,134 tok  $0.0062
+planned-4325-s01-30af6a             15,967 tok  $0.0085
+planned-4326-s01-8980ad             16,269 tok  $0.0078
+planned-4327-s01-35418d             15,166 tok  $0.0068
+planned-4328-s01-f983a9             13,915 tok  $0.0067
+planned-4329-s01-23c171             17,167 tok  $0.0088
+planned-4330-s01-1f674d             17,110 tok  $0.0091
+planned-4331-s01-2d6a39             16,259 tok  $0.0083
+planned-4332-s01-e15a47             10,658 tok  $0.0059
+planned-4333-s01-c213a8             12,039 tok  $0.0052
+planned-4334-s01-5530d8             15,067 tok  $0.0079
+planned-4335-s01-051adb             13,470 tok  $0.0062
+planned-4336-s01-bbc6d2             19,967 tok  $0.0093
+planned-4337-s01-9f25d1             10,392 tok  $0.0058
+planned-4338-s01-72a884             12,895 tok  $0.0065
+planned-4339-s01-407d82             17,368 tok  $0.0087
+planned-4340-s01-2636ea             11,745 tok  $0.0060
+
+26 runs, 382,952 tokens, $0.1903, 0 with errors
